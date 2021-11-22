@@ -1,9 +1,10 @@
 <header class="fixed-top">
 
+  <button (click)="toggle()">open or close</button>
   <ng-content select=".tr-header"></ng-content>
 
 </header>
-<main>
+<main [ngClass]="{'close-aside': !open}">
   <div class="shadow position-fixed">
 
   </div>
