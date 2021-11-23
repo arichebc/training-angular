@@ -1,0 +1,14 @@
+.myflex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  nav {
+    background: var(--app-darklight2);
+  }
+  main {
+    flex-grow: 1;
+  }
+  footer {
+    background: var(--app-darklight2);
+  }
+}

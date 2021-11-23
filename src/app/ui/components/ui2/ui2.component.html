@@ -1,0 +1,35 @@
+<div class="myflex">
+
+  <header>
+
+    <span (click)="toggle()">
+
+      <div *ngIf="!open; then thenBlock; else elseBlock"></div>
+
+      <ng-template #thenBlock>
+        <ng-content select=".tr-btn-open"></ng-content>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <ng-content select=".tr-btn-close"></ng-content>
+      </ng-template>
+
+    </span>
+
+    <ng-content select=".tr-header"></ng-content>
+
+  </header>
+
+  <nav>
+    <ng-content select=".tr-nav"></ng-content>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>
+    <ng-content select=".tr-footer"></ng-content>
+  </footer>
+
+</div>
