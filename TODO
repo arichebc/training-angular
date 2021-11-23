@@ -1,0 +1,6 @@
+
+Todo:
+  ☐ ecrire le code et tester template-container avec binding
+  ☐ créer les routes pour la partie clients (clients routing module)
+  ☐ deplacer les routes pour la partie login dans login routing module
+  ☐ corriger le bug pour faire fonctionner les route sign-in, sign-up, reset et forgot (la seule modif à faire sur  AppModule)
