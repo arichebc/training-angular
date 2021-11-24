@@ -1,14 +1,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th *ngFor="let item of headers" scope="col">{{ item }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+    <ng-content></ng-content>
   </tbody>
 </table>
