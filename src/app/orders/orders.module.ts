@@ -13,5 +13,6 @@ import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orde
     PageAddOrderComponent,
   ],
   imports: [CommonModule, OrdersRoutingModule, SharedModule],
+  providers: [],
 })
 export class OrdersModule {}
