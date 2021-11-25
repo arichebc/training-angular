@@ -6,6 +6,7 @@
     <a class="nav-link" routerLink="/clients" routerLinkActive="active">Clients</a>
   </li>
   <li class="nav-item">
-    <button (click)="increment()">Increment</button>
+    <!-- <button (click)="increment()">Increment</button> -->
+    <app-btn-action (submited)="increment()" label="Increment"></app-btn-action>
   </li>
 </ul>

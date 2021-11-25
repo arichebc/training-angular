@@ -7,6 +7,7 @@ import { IconsModule } from '../icons/icons.module';
 import { TotalPipe } from './pipes/total.pipe';
 import { StateDirective } from './directives/state.directive';
 import { RouterModule } from '@angular/router';
+import { BtnActionComponent } from './components/btn-action/btn-action.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     BtnRouteComponent,
     TotalPipe,
     StateDirective,
+    BtnActionComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -23,6 +25,7 @@ import { RouterModule } from '@angular/router';
     IconsModule,
     TotalPipe,
     StateDirective,
+    BtnActionComponent,
   ],
 })
 export class SharedModule {}

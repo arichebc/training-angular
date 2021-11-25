@@ -17,3 +17,13 @@ Todo:
   ✔ indices : create a service (core/services) @done(21-11-24 17:00)
   ✔ indices : use an observable @done(21-11-24 17:00)
   ✔ rxjs : Subject et BehaviorSubject @done(21-11-24 17:00)
+
+  Todo:
+    ☐ partie clients en prenant exemple sur la partie orders
+
+  Todo:
+    ☐ créer un component supide btn-action et l'utiliser dans le nav pour l'incrementation
+    ☐ il doit prendre 1 @Input() pour passer du parent vers l'enfant un texte qui apparait dans le bouton
+    ☐ il doit prendre 1 @Output() pour passer au parent l'info que le bouton a été cliqué
+    ☐ le parent (nav) récupère l'info dans le html et invoque la fonction increment() dès qu'il sait que le bouton a été cliqué
+    ☐ indice : voir l'EventEmitter dans la doc officielle

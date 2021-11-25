@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IconsModule } from '../icons/icons.module';
 import { LoginModule } from '../login/login.module';
+import { SharedModule } from '../shared/shared.module';
 import { TemplatesModule } from '../templates/templates.module';
 import { UiModule } from '../ui/ui.module';
 import { FooterComponent } from './components/footer/footer.component';
@@ -11,7 +12,7 @@ import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [HeaderComponent, NavComponent, FooterComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SharedModule],
   exports: [
     UiModule,
     IconsModule,
