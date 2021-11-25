@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdersService } from 'src/app/orders/services/orders.service';
+import { Client } from 'src/app/core/models/client';
+import { ClientsService } from '../../services/clients.service';
 
 @Component({
   selector: 'app-page-list-clients',
@@ -7,7 +8,14 @@ import { OrdersService } from 'src/app/orders/services/orders.service';
   styleUrls: ['./page-list-clients.component.scss'],
 })
 export class PageListClientsComponent implements OnInit {
-  constructor(private ordersService: OrdersService) {}
-
+  public title = 'List Client';
+  public headers: string[];
+  public collection!: Client[];
+  constructor(private clientsService: ClientsService) {
+    this.headers = ['Name', 'Total CA HT', 'Tva', 'Total TTC', 'State'];
+    this.clientsService.collection.subscribe((data) => {
+      this.collection = data;
+    });
+  }
   ngOnInit(): void {}
 }

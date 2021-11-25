@@ -5,5 +5,8 @@
     font-size: var(--app-h1-fs);
     color: var(--app-light);
     margin: 0;
+    span {
+      font-size: var(--app-regular-fs);
+    }
   }
 }

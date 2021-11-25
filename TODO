@@ -4,3 +4,16 @@ Todo:
   ✔ créer les routes pour la partie clients (clients routing module) @done(21-11-23 16:53)
   ✔ deplacer les routes pour la partie login dans login routing module @done(21-11-23 16:53)
   ✔ corriger le bug pour faire fonctionner les route sign-in, sign-up, reset et forgot (la seule modif à faire sur  AppModule) @done(21-11-23 16:53)
+
+Todo:
+  ✔ enum, interface, model, service, page list clients @done(21-11-24 17:00)
+  ✔ pour le model Client (stateClient.ACTIVE, 20 tva, totalCaHt 1000) @done(21-11-24 17:00)
+  ✔ dans pipe list client on affiche le name, total ca ht, tva, totalTTC, state (total ttc est a calculer en utilisant le meme pipe total) @done(21-11-24 17:00)
+
+Todo:
+  ✔ afficher un num version qui start a 1 dans header, footer, templatefullwidth html @done(21-11-24 17:00)
+  ✔ un button dans nav component qui increment le num de version @done(21-11-24 17:00)
+  ✔ on veut que l'incrementation soit visible dans header, footer, templatefullwidth @done(21-11-24 17:00)
+  ✔ indices : create a service (core/services) @done(21-11-24 17:00)
+  ✔ indices : use an observable @done(21-11-24 17:00)
+  ✔ rxjs : Subject et BehaviorSubject @done(21-11-24 17:00)
