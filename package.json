@@ -8,7 +8,9 @@
     "buildProd": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "jsonServer": "json-server --watch mock_db/db.json"
+    "jsonServer": "json-server --watch mock_db/db.json",
+    "compodoc": "compodoc -p tsconfig.json -o -s",
+    "analyze": "ng build --configuration production --stats-json && webpack-bundle-analyzer dist/crm-nov-bis/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -26,14 +28,18 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "bootstrap": "^5.1.3",
+    "dayjs": "^1.10.7",
+    "moment": "^2.29.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
+    "webpack-bundle-analyzer": "^4.5.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.0.3",
     "@angular/cli": "~13.0.3",
     "@angular/compiler-cli": "~13.0.0",
+    "@compodoc/compodoc": "^1.1.16",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.10.0",
