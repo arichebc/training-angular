@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-btn-route',
   templateUrl: './btn-route.component.html',
-  styleUrls: ['./btn-route.component.scss']
+  styleUrls: ['./btn-route.component.scss'],
 })
 export class BtnRouteComponent implements OnInit {
+  @Input() label!: string;
+  @Input() route!: string;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
