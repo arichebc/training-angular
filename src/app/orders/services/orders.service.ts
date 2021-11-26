@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
+import { ErrorHandler } from 'src/app/core/abstracts/error-handler';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { environment } from 'src/environments/environment';
@@ -12,7 +13,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class OrdersService {
+export class OrdersService extends ErrorHandler {
   /**
    * private collection property Observable
    */
@@ -20,7 +21,10 @@ export class OrdersService {
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) {
-    this.collection = this.http.get<Order[]>(`${this.urlApi}/orders`);
+    super();
+    this.collection = this.http
+      .get<Order[]>(`${this.urlApi}/orders`)
+      .pipe(catchError(this.handleError));
   }
   /**
    * get collection
@@ -50,13 +54,20 @@ export class OrdersService {
    * update item in collection
    */
   public update(item: Order): Observable<Order> {
-    return this.http.put<Order>(`${this.urlApi}/orders/${item.id}`, item);
+    return this.http
+      .put<Order>(`${this.urlApi}/orders/${item.id}`, item)
+      .pipe(catchError(this.handleError));
   }
 
   /**
    * @function
    * add item in collection
    */
+  public add(item: Order): Observable<Order> {
+    return this.http
+      .post<Order>(`${this.urlApi}/orders`, item)
+      .pipe(catchError(this.handleError));
+  }
 
   /**
    * @function
