@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { catchError, Observable, Subject, tap } from 'rxjs';
 import { ErrorHandler } from 'src/app/core/abstracts/error-handler';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
@@ -17,27 +17,28 @@ export class OrdersService extends ErrorHandler {
   /**
    * private collection property Observable
    */
-  private collection$!: Observable<Order[]>;
+  private collection$: Subject<Order[]> = new Subject<Order[]>();
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) {
     super();
-    this.collection = this.http
-      .get<Order[]>(`${this.urlApi}/orders`)
-      .pipe(catchError(this.handleError));
   }
   /**
-   * get collection
+   * refresh collection
    */
-  public get collection(): Observable<Order[]> {
-    return this.collection$;
+  public refreshCollection(): void {
+    this.http
+      .get<Order[]>(`${this.urlApi}/orders`)
+      .pipe(catchError(this.handleError))
+      .subscribe((data) => this.collection$.next(data));
   }
 
   /**
-   * set collection
+   * get collection
    */
-  public set collection(col: Observable<Order[]>) {
-    this.collection$ = col;
+  public get collection(): Subject<Order[]> {
+    this.refreshCollection();
+    return this.collection$;
   }
 
   /**
@@ -73,9 +74,20 @@ export class OrdersService extends ErrorHandler {
    * @function
    * delete item in collection
    */
+  public delete(id: number): Observable<Order> {
+    return this.http.delete<Order>(`${this.urlApi}/orders/${id}`).pipe(
+      tap(() => this.refreshCollection()),
+      catchError(this.handleError)
+    );
+  }
 
   /**
    * @function
    * get item by id
    */
+  public getItemById(id: number): Observable<Order> {
+    return this.http
+      .get<Order>(`${this.urlApi}/orders/${id}`)
+      .pipe(catchError(this.handleError));
+  }
 }

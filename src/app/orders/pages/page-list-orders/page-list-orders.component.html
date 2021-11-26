@@ -2,6 +2,10 @@
   <!-- {{ collection | json }} -->
   <app-tab-light [headers]="headers" *ngIf="collection$ | async as collection">
     <tr *ngFor="let item of collection">
+      <td>
+        <app-icon-edit (click)="goToEdit(item.id)"></app-icon-edit>
+        <app-icon-delete (click)="deleteItem(item.id)"></app-icon-delete>
+      </td>
       <td>{{ item.typePresta }}</td>
       <td>{{ item.client | uppercase }}</td>
       <td>{{ item.nbJours }}</td>

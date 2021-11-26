@@ -5,7 +5,7 @@
       "nbJours": 10,
       "tva": 20,
       "state": "OPTION",
-      "typePresta": "coaching",
+      "typePresta": "coachingDFGH",
       "client": "Modis",
       "comment": "Merci Modis pour les 10k",
       "id": 1
@@ -15,7 +15,7 @@
       "nbJours": 1,
       "tva": 20,
       "state": "CONFIRMED",
-      "typePresta": "formation",
+      "typePresta": "coaching",
       "client": "M2i",
       "comment": null,
       "id": 2
@@ -35,20 +35,10 @@
       "nbJours": 1,
       "tva": 20,
       "state": "OPTION",
-      "typePresta": "dfsgb",
-      "client": "sdfgh",
-      "comment": "sdfg",
+      "typePresta": "dsfgqdfg",
+      "client": "dfsg",
+      "comment": null,
       "id": 4
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": "dfsg",
-      "client": "sdfg",
-      "comment": "sdfg",
-      "id": 5
     }
   ],
   "clients": [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { VersionService } from 'src/app/core/services/version.service';
@@ -14,13 +15,15 @@ export class PageListOrdersComponent implements OnInit {
   public states = Object.values(StateOrder);
   public title = 'List Orders';
   public headers: string[];
-  public collection$!: Observable<Order[]>;
+  public collection$!: Subject<Order[]>;
   public version$!: Subject<number>;
   constructor(
     private ordersService: OrdersService,
-    private versionService: VersionService
+    private versionService: VersionService,
+    private router: Router
   ) {
     this.headers = [
+      'Action',
       'Type',
       'Client',
       'NbJours',
@@ -39,5 +42,12 @@ export class PageListOrdersComponent implements OnInit {
     this.ordersService.changeState(item, state).subscribe((data) => {
       Object.assign(item, data);
     });
+  }
+
+  public goToEdit(id: number): void {
+    this.router.navigate(['orders', 'edit', id]);
+  }
+  public deleteItem(id: number): void {
+    this.ordersService.delete(id).subscribe();
   }
 }

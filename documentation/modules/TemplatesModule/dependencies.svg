@@ -14,13 +14,13 @@
 <title>cluster_TemplatesModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 446,-230.8 446,-32.8 8,-32.8"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_TemplatesModule_declarations</title>
-<polygon fill="none" stroke="black" points="19,-40.8 19,-92.8 435,-92.8 435,-40.8 19,-40.8"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_TemplatesModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-170.8 16,-222.8 438,-222.8 438,-170.8 16,-170.8"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_TemplatesModule_declarations</title>
+<polygon fill="none" stroke="black" points="19,-40.8 19,-92.8 435,-92.8 435,-40.8 19,-40.8"/>
 </g>
 <!-- TemplateContainerComponent -->
 <g id="node1" class="node">

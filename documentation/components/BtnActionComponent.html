@@ -38,7 +38,7 @@
   <li>Components</li>
   <li
   >
-  PageListClientsComponent</li>
+  BtnActionComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,7 +64,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/clients/pages/page-list-clients/page-list-clients.component.ts</code>
+    <code>src/app/shared/components/btn-action/btn-action.component.ts</code>
 </p>
 
 
@@ -95,19 +95,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-page-list-clients</code></td>
+                <td class="col-md-9"><code>app-btn-action</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./page-list-clients.component.scss</code></td>
+                <td class="col-md-9"><code>./btn-action.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./page-list-clients.component.html</code></td>
+                <td class="col-md-9"><code>./btn-action.component.html</code></td>
             </tr>
 
 
@@ -125,29 +125,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#collection" >collection</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#headers" >headers</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#title" >title</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -158,13 +135,45 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#action" >action</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#label" >label</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#submited" >submited</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -178,51 +187,67 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(clientsService: <a href="../injectables/ClientsService.html" target="_self">ClientsService</a>)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/clients/pages/page-list-clients/page-list-clients.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/components/btn-action/btn-action.component.ts:10</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>clientsService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/ClientsService.html" target="_self" >ClientsService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <b>label</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/shared/components/btn-action/btn-action.component.ts:9</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submited"></a>
+                        <b>submited</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/components/btn-action/btn-action.component.ts:10</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
 
     <section>
@@ -230,6 +255,45 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="action"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>action</b></span>
+                        <a href="#action"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>action()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/shared/components/btn-action/btn-action.component.ts:18</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -250,8 +314,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/clients/pages/page-list-clients/page-list-clients.component.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/shared/components/btn-action/btn-action.component.ts:17</a></div>
                 </td>
             </tr>
 
@@ -268,148 +332,43 @@
         </tbody>
     </table>
 </section>
-    <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="collection"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>collection</b></span>
-                        <a href="#collection"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/Client.html" target="_self" >Client[]</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/clients/pages/page-list-clients/page-list-clients.component.ts:13</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="headers"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>headers</b></span>
-                        <a href="#headers"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>string[]</code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/clients/pages/page-list-clients/page-list-clients.component.ts:12</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="title"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>title</b></span>
-                        <a href="#title"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;List Client&#x27;</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/clients/pages/page-list-clients/page-list-clients.component.ts:11</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { Client } from &#x27;src/app/core/models/client&#x27;;
-import { ClientsService } from &#x27;../../services/clients.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 
 @Component({
-  selector: &#x27;app-page-list-clients&#x27;,
-  templateUrl: &#x27;./page-list-clients.component.html&#x27;,
-  styleUrls: [&#x27;./page-list-clients.component.scss&#x27;],
+  selector: &#x27;app-btn-action&#x27;,
+  templateUrl: &#x27;./btn-action.component.html&#x27;,
+  styleUrls: [&#x27;./btn-action.component.scss&#x27;],
 })
-export class PageListClientsComponent implements OnInit {
-  public title &#x3D; &#x27;List Client&#x27;;
-  public headers: string[];
-  public collection!: Client[];
-  constructor(private clientsService: ClientsService) {
-    this.headers &#x3D; [&#x27;Name&#x27;, &#x27;Total CA HT&#x27;, &#x27;Tva&#x27;, &#x27;Total TTC&#x27;, &#x27;State&#x27;];
-    this.clientsService.collection.subscribe((data) &#x3D;&gt; {
-      this.collection &#x3D; data;
-    });
-  }
+export class BtnActionComponent implements OnInit {
+  @Input() label!: string;
+  @Output() submited: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  // doit etre un event
+  // doit etre un observable (la souscription est faite automatiquement par angular dans le html du component parent)
+  // doit etre un observable chaud
+  // ne doit pas etre init avec aucun flux de donnee
+  constructor() {}
+
   ngOnInit(): void {}
+  public action(): void {
+    this.submited.emit();
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-template-full-width [title]&#x3D;&quot;title&quot; *ngIf&#x3D;&quot;collection&quot;&gt;
-
-  &lt;app-tab-light [headers]&#x3D;&quot;headers&quot;&gt;
-    &lt;tr *ngFor&#x3D;&quot;let item of collection&quot;&gt;
-      &lt;td&gt;{{ item.name }}&lt;/td&gt;
-      &lt;td&gt;{{ item.totalCaHt | currency }}&lt;/td&gt;
-      &lt;td&gt;{{ item.tva }}&lt;/td&gt;
-      &lt;td&gt;{{ item.totalCaHt | total: 1: item.tva | currency }}&lt;/td&gt;
-      &lt;td&gt;{{ item.state }}&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/app-tab-light&gt;
-  &lt;app-btn-route&gt;&lt;/app-btn-route&gt;
-
-&lt;/app-template-full-width&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;button (click)&#x3D;&quot;action()&quot;&gt;{{ label }}&lt;/button&gt;
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./page-list-clients.component.scss</code>
+                    <code>./btn-action.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
@@ -439,10 +398,10 @@ export class PageListClientsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-template-full-width [title]="title" *ngIf="collection">  <app-tab-light [headers]="headers">    <tr *ngFor="let item of collection">      <td>{{ item.name }}</td>      <td>{{ item.totalCaHt | currency }}</td>      <td>{{ item.tva }}</td>      <td>{{ item.totalCaHt | total: 1: item.tva | currency }}</td>      <td>{{ item.state }}</td>    </tr>  </app-tab-light>  <app-btn-route></app-btn-route></app-template-full-width></div>'
+        var COMPONENT_TEMPLATE = '<div><button (click)="action()">{{ label }}</button></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnActionComponent', 'selector': 'app-btn-action'},{'name': 'BtnRouteComponent', 'selector': 'app-btn-route'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormOrderComponent', 'selector': 'app-form-order'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'IconCloseComponent', 'selector': 'app-icon-close'},{'name': 'IconDeleteComponent', 'selector': 'app-icon-delete'},{'name': 'IconEditComponent', 'selector': 'app-icon-edit'},{'name': 'IconNavComponent', 'selector': 'app-icon-nav'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddClientComponent', 'selector': 'app-page-add-client'},{'name': 'PageAddOrderComponent', 'selector': 'app-page-add-order'},{'name': 'PageEditClientComponent', 'selector': 'app-page-edit-client'},{'name': 'PageEditOrderComponent', 'selector': 'app-page-edit-order'},{'name': 'PageForgotComponent', 'selector': 'app-page-forgot'},{'name': 'PageListClientsComponent', 'selector': 'app-page-list-clients'},{'name': 'PageListOrdersComponent', 'selector': 'app-page-list-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PageResetComponent', 'selector': 'app-page-reset'},{'name': 'PageSignInComponent', 'selector': 'app-page-sign-in'},{'name': 'PageSignUpComponent', 'selector': 'app-page-sign-up'},{'name': 'TabLightComponent', 'selector': 'app-tab-light'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'TemplateFullWidthComponent', 'selector': 'app-template-full-width'},{'name': 'Ui2Component', 'selector': 'app-ui2'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [{'name': 'StateDirective', 'selector': '[appState]'}];
-    var ACTUAL_COMPONENT = {'name': 'PageListClientsComponent'};
+    var ACTUAL_COMPONENT = {'name': 'BtnActionComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -486,7 +445,7 @@ export class PageListClientsComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'PageListClientsComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BtnActionComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
