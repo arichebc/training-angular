@@ -51,12 +51,21 @@
       "comment": "un comment pour client modis"
     },
     {
-      "state": "ACTIVE",
+      "state": "INACTIVE",
       "tva": 20,
-      "id": 2,
-      "name": "Modis",
       "totalCaHt": 120000,
+      "id": 1,
+      "name": "Modis",
       "comment": "un comment pour client modis"
+    }
+  ],
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$XsQsOqwCc5VrwCs0SzfFrO02kJZeCtlTSxN9zHabU9rlApecAhgP6",
+      "firstname": "Olivier",
+      "lastname": "Monge",
+      "id": 1
     }
   ]
 }
