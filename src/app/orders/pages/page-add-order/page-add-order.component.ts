@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
+import { tryAddOrderAction } from '../../store/actions/orders.actions';
 
 @Component({
   selector: 'app-page-add-order',
@@ -9,12 +11,11 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-add-order.component.scss'],
 })
 export class PageAddOrderComponent implements OnInit {
-  constructor(private ordersService: OrdersService, private router: Router) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {}
-  public action(item: Order): void {
-    this.ordersService.add(item).subscribe(() => {
-      this.router.navigate(['orders']);
-    });
+
+  public action(order: Order): void {
+    this.store.dispatch(tryAddOrderAction({ order }));
   }
 }

@@ -7,7 +7,11 @@ import { Order } from 'src/app/core/models/order';
 import { VersionService } from 'src/app/core/services/version.service';
 import { AppState } from 'src/app/store/reducer';
 import { OrdersService } from '../../services/orders.service';
-import { tryGetAllOrdersAction } from '../../store/actions/orders.actions';
+import {
+  tryChangeStateOrderAction,
+  tryDeleteOrderAction,
+  tryGetAllOrdersAction,
+} from '../../store/actions/orders.actions';
 import { selectOrders } from '../../store/selectors/orders.selectors';
 
 @Component({
@@ -51,9 +55,10 @@ export class PageListOrdersComponent implements OnInit {
     this.store.dispatch(tryGetAllOrdersAction());
   }
 
-  public changeState(item: Order, event: Event): void {
+  public changeState(order: Order, event: Event): void {
     const target = event.target as HTMLSelectElement;
     const state = target.value as StateOrder;
+    this.store.dispatch(tryChangeStateOrderAction({ order, state }));
     // this.ordersService.changeState(item, state).subscribe((data) => {
     //   Object.assign(item, data);
     // });
@@ -62,7 +67,9 @@ export class PageListOrdersComponent implements OnInit {
   public goToEdit(id: number): void {
     this.router.navigate(['orders', 'edit', id]);
   }
+
   public deleteItem(id: number): void {
+    this.store.dispatch(tryDeleteOrderAction({ id }));
     // this.ordersService.delete(id).subscribe();
   }
 
