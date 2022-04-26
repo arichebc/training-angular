@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, Subject, tap } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { ErrorHandler } from 'src/app/core/abstracts/error-handler';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
@@ -17,27 +17,29 @@ export class OrdersService extends ErrorHandler {
   /**
    * private collection property Observable
    */
-  private collection$: Subject<Order[]> = new Subject<Order[]>();
+  private collection$: Observable<Order[]>;
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) {
     super();
+    this.collection$ = this.http.get<Order[]>(`${this.urlApi}/orders`);
   }
+
   /**
    * refresh collection
    */
-  public refreshCollection(): void {
-    this.http
-      .get<Order[]>(`${this.urlApi}/orders`)
-      .pipe(catchError(this.handleError))
-      .subscribe((data) => this.collection$.next(data));
-  }
+  // public refreshCollection(): void {
+  //   this.http
+  //     .get<Order[]>(`${this.urlApi}/orders`)
+  //     .pipe(catchError(this.handleError))
+  //     .subscribe((data) => this.collection$.next(data));
+  // }
 
   /**
    * get collection
    */
-  public get collection(): Subject<Order[]> {
-    this.refreshCollection();
+  public get collection(): Observable<Order[]> {
+    // this.refreshCollection();
     return this.collection$;
   }
 
@@ -75,10 +77,9 @@ export class OrdersService extends ErrorHandler {
    * delete item in collection
    */
   public delete(id: number): Observable<Order> {
-    return this.http.delete<Order>(`${this.urlApi}/orders/${id}`).pipe(
-      tap(() => this.refreshCollection()),
-      catchError(this.handleError)
-    );
+    return this.http
+      .delete<Order>(`${this.urlApi}/orders/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   /**
