@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
+import { selectRouteParam } from 'src/app/store/reducer/router.reducer';
 import { OrdersService } from '../../services/orders.service';
 import * as ordersActions from '../actions/orders.actions';
 
@@ -89,5 +90,31 @@ export class OrdersEffects {
         );
       })
     );
+  });
+
+  // delete order
+  deleteOrderEffect$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ordersActions.tryDeleteOrderAction),
+      switchMap(({ id }: { id: number }) => {
+        return this.ordersService.delete(id).pipe(
+          map(() => ordersActions.deleteOrderSuccessAction({ id })),
+          catchError((error) => of(ordersActions.errorOrdersAction({ error })))
+        );
+      })
+    );
+  });
+
+  // id param in route
+  editIdChange$ = createEffect(() => {
+    return this.store
+      .select(selectRouteParam('id'))
+      .pipe(
+        map((id) =>
+          id
+            ? ordersActions.tryGetOrderByIdAction({ id: Number(id) })
+            : ordersActions.errorOrdersAction({ error: null })
+        )
+      );
   });
 }

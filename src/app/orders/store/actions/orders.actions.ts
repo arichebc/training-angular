@@ -52,7 +52,7 @@ export const tryChangeStateOrderAction = createAction(
 // try delete order capted by effect
 export const tryDeleteOrderAction = createAction(
   '[Orders] try delete order',
-  props<{ order: Order }>()
+  props<{ id: number }>()
 );
 
 // update delete capted by reducer
