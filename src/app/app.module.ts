@@ -22,7 +22,7 @@ import { rootReducer } from './store/reducer';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    StoreModule.forRoot(rootReducer, {}),
+    StoreModule.forRoot(rootReducer),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([]),
   ],
