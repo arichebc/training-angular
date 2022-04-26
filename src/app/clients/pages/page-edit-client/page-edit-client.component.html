@@ -1,1 +1,6 @@
-<p>page-edit-client works!</p>
+<app-template-container title="Edit Order">
+  <!-- <div *ngIf="item$ | async as item">
+    {{item | json}}
+  </div> -->
+  <app-form-client *ngIf="item$ | async as item" [init]="item" (submited)="action($event)"></app-form-client>
+</app-template-container>

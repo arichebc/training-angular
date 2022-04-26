@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { StateClient } from 'src/app/core/enums/state-client';
 import { Client } from 'src/app/core/models/client';
-import { VersionService } from 'src/app/core/services/version.service';
 import { ClientsService } from '../../services/clients.service';
 
 @Component({
@@ -11,28 +10,31 @@ import { ClientsService } from '../../services/clients.service';
   styleUrls: ['./page-list-clients.component.scss'],
 })
 export class PageListClientsComponent implements OnInit {
+  public states = Object.values(StateClient);
   public title = 'List Client';
   public headers: string[];
-  public collection$!: Subject<Client[]>;
-  public version$!: Subject<number>;
-  constructor(
-    private clientsService: ClientsService,
-    private versionService: VersionService,
-    private router: Router
-  ) {
+  public collection!: Client[];
+  constructor(private clientsService: ClientsService, private router: Router) {
     this.headers = [
-      'Action',
+      'Actions',
       'Name',
       'Total CA HT',
       'Tva',
       'Total TTC',
       'State',
     ];
-    this.collection$ = this.clientsService.collection;
-    this.version$ = this.versionService.version;
+    this.clientsService.collection.subscribe((data) => {
+      this.collection = data;
+    });
   }
   ngOnInit(): void {}
-
+  public changeState(item: Client, event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const state = target.value as StateClient;
+    this.clientsService.changeState(item, state).subscribe((data) => {
+      Object.assign(item, data);
+    });
+  }
   public goToEdit(id: number): void {
     this.router.navigate(['clients', 'edit', id]);
   }

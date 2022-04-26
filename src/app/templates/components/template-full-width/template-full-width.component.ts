@@ -11,4 +11,7 @@ export class TemplateFullWidthComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  check() {
+    console.log('CD TEMP FW');
+  }
 }

@@ -9,12 +9,11 @@ import { ClientsService } from '../../services/clients.service';
   styleUrls: ['./page-add-client.component.scss'],
 })
 export class PageAddClientComponent implements OnInit {
-  constructor(private clientService: ClientsService, private router: Router) {}
+  constructor(private clientsService: ClientsService, private router: Router) {}
 
   ngOnInit(): void {}
-
   public action(item: Client): void {
-    this.clientService.add(item).subscribe(() => {
+    this.clientsService.add(item).subscribe(() => {
       this.router.navigate(['clients']);
     });
   }

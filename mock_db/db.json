@@ -4,7 +4,7 @@
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "OPTION",
+      "state": "CANCELED",
       "typePresta": "coachingDFGH",
       "client": "Modis",
       "comment": "Merci Modis pour les 10k",
@@ -14,7 +14,7 @@
       "tjmHt": 1200,
       "nbJours": 1,
       "tva": 20,
-      "state": "CONFIRMED",
+      "state": "CANCELED",
       "typePresta": "coaching",
       "client": "M2i",
       "comment": null,
@@ -24,7 +24,7 @@
       "tjmHt": 1200,
       "nbJours": 1,
       "tva": 20,
-      "state": "CANCELED",
+      "state": "CONFIRMED",
       "typePresta": "ddd",
       "client": "xddd",
       "comment": null,
@@ -46,26 +46,33 @@
       "state": "INACTIVE",
       "tva": 20,
       "totalCaHt": 120000,
-      "id": 1,
-      "name": "Capgemini",
+      "id": 2,
+      "name": "Modis",
       "comment": "un comment pour client modis"
     },
     {
-      "state": "INACTIVE",
+      "name": "Betclic2",
       "tva": 20,
-      "totalCaHt": 120000,
-      "id": 1,
-      "name": "Modis",
-      "comment": "un comment pour client modis"
+      "state": "ACTIVE",
+      "totalCaHt": 1000,
+      "comment": "no comment",
+      "id": 3
     }
   ],
   "users": [
     {
       "email": "olivier@mail.com",
-      "password": "$2a$10$XsQsOqwCc5VrwCs0SzfFrO02kJZeCtlTSxN9zHabU9rlApecAhgP6",
+      "password": "$2a$10$EzFXv4jVbUjql.arOh8TB.ecNBAzHoN5dPWpOQza38t3PxW9aCXzW",
       "firstname": "Olivier",
       "lastname": "Monge",
       "id": 1
+    },
+    {
+      "email": "coderbaseit@mail.com",
+      "password": "$2a$10$HWoBpskMu3RNynukoRsdx.EkCosRZE7v8xzDax6wFrq7U.WozCLd.",
+      "firstname": "christophe",
+      "lastname": "gueroult",
+      "id": 2
     }
   ]
 }

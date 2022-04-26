@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="register()">
+
+
+  <div class="mb-3">
+    <label for="firstname" class="form-label">firstname</label>
+    <input formControlName="firstname" type="text" class="form-control" id="firstname">
+  </div>
+
+  <div class="mb-3">
+    <label for="lastname" class="form-label">lastname</label>
+    <input formControlName="lastname" type="text" class="form-control" id="lastname">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input formControlName="email" type="text" class="form-control" id="email">
+  </div>
+
+  <div class="mb-3">
+    <label for="Password" class="form-label">Password</label>
+    <input formControlName="password" type="text" class="form-control" id="Password">
+  </div>
+
+  <div class="mb-3">
+    <label for="confirmedPassword" class="form-label">Confirm your password</label>
+    <input formControlName="confirmedPassword" type="text" class="form-control" id="confirmedPassword">
+  </div>
+
+
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+
+</form>

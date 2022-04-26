@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import * as dayjs from 'dayjs';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
@@ -7,6 +7,7 @@ import { VersionService } from '../../services/version.service';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent implements OnInit {
   public version$: Subject<number>;
@@ -17,4 +18,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  check() {
+    console.log('CD FOOTER');
+  }
 }

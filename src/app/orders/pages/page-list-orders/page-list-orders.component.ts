@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
@@ -10,13 +10,16 @@ import { OrdersService } from '../../services/orders.service';
   selector: 'app-page-list-orders',
   templateUrl: './page-list-orders.component.html',
   styleUrls: ['./page-list-orders.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageListOrdersComponent implements OnInit {
   public states = Object.values(StateOrder);
   public title = 'List Orders';
   public headers: string[];
   public collection$!: Subject<Order[]>;
+  // public collection!: Order[];
   public version$!: Subject<number>;
+
   constructor(
     private ordersService: OrdersService,
     private versionService: VersionService,
@@ -33,6 +36,10 @@ export class PageListOrdersComponent implements OnInit {
       'State',
     ];
     this.collection$ = this.ordersService.collection;
+    // this.ordersService.collection.subscribe((data) => {
+    //   this.collection = data;
+    //   this.cd.detectChanges();
+    // });
     this.version$ = this.versionService.version;
   }
   ngOnInit(): void {}
@@ -49,5 +56,9 @@ export class PageListOrdersComponent implements OnInit {
   }
   public deleteItem(id: number): void {
     this.ordersService.delete(id).subscribe();
+  }
+
+  check() {
+    console.log('CD PG LIST ORDERS');
   }
 }

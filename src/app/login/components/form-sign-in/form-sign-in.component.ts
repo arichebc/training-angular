@@ -23,6 +23,7 @@ export class FormSignInComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    console.log('hello');
     this.submited.emit(this.form.value);
   }
 }
