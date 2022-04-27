@@ -1,12 +1,15 @@
 .bandeau {
-  padding: 1.5rem;
-  background: var(--app-primary);
+  padding: 15px;
+  border-bottom: 1px solid var(--app-aside-bg-color);
+  min-height: 100px;
   h1 {
     font-size: var(--app-h1-fs);
-    color: var(--app-light);
+    color: var(--app-primary);
     margin: 0;
-    span {
-      font-size: var(--app-regular-fs);
-    }
+    margin-bottom: 5px;
   }
+}
+.my-full-container {
+  // height: 300px;
+  overflow: auto;
 }

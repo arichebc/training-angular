@@ -1,10 +1,10 @@
-<div class="bandeau">
-  <h1>{{ title }} <span *ngIf="version">v. {{ version }}</span></h1>
+<div class="d-flex flex-column parent">
+  <div class="bandeau">
+    <h1>{{ title }}</h1>
+    <ng-content select=".tr-head"></ng-content>
+  </div>
+  <div class="my-full-container flex-grow-1">
+    <ng-content select=".tr-body"></ng-content>
+  </div>
 </div>
-
-<div>
-
-  <ng-content></ng-content>
-
-</div>
-{{check()}}
+{{ check() }}

@@ -39,4 +39,8 @@ export class OrdersFacade {
   public getOrderById(id: number): void {
     this.store.dispatch(ordersAction.tryGetOrderByIdAction({ id }));
   }
+
+  public getOrderByClient(expression: string): void {
+    this.store.dispatch(ordersAction.tryGetOrderClientAction({ expression }));
+  }
 }

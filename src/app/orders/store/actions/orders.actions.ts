@@ -72,3 +72,9 @@ export const getOrderByIdSuccessAction = createAction(
   '[Orders] get order by id',
   props<{ order: Order }>()
 );
+
+// get order by client by reducer
+export const tryGetOrderClientAction = createAction(
+  '[Orders] get order by client name',
+  props<{ expression: string }>()
+);

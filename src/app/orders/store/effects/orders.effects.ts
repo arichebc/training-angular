@@ -117,4 +117,19 @@ export class OrdersEffects {
         )
       );
   });
+
+  // get orders by filter
+  getOrdersByFilterEffect$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ordersActions.tryGetOrderClientAction),
+      switchMap(({ expression }: { expression: string }) => {
+        return this.ordersService.getItemsBySearch(expression).pipe(
+          map((orders: Order[]) =>
+            ordersActions.getAllOrdersSuccessAction({ orders })
+          ),
+          catchError((error) => of(ordersActions.errorOrdersAction({ error })))
+        );
+      })
+    );
+  });
 }

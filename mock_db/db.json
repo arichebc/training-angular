@@ -9,6 +9,16 @@
       "client": "M2i",
       "comment": null,
       "id": 2
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "OPTION",
+      "typePresta": "hello",
+      "client": "capgemini",
+      "comment": null,
+      "id": 3
     }
   ],
   "clients": [
