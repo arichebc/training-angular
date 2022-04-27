@@ -26,20 +26,9 @@ export class OrdersService extends ErrorHandler {
   }
 
   /**
-   * refresh collection
-   */
-  // public refreshCollection(): void {
-  //   this.http
-  //     .get<Order[]>(`${this.urlApi}/orders`)
-  //     .pipe(catchError(this.handleError))
-  //     .subscribe((data) => this.collection$.next(data));
-  // }
-
-  /**
    * get collection
    */
   public get collection(): Observable<Order[]> {
-    // this.refreshCollection();
     return this.collection$;
   }
 
@@ -52,6 +41,7 @@ export class OrdersService extends ErrorHandler {
     obj.state = state;
     return this.update(obj);
   }
+
   /**
    * @function
    * update item in collection

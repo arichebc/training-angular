@@ -21,10 +21,10 @@
       "comment": "un comment pour client modis"
     },
     {
-      "name": "Betclic2",
-      "tva": 20,
       "state": "ACTIVE",
+      "tva": 20,
       "totalCaHt": 1000,
+      "name": "Betclic2",
       "comment": "no comment",
       "id": 3
     }

@@ -1,11 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, Subject, tap } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { ErrorHandler } from 'src/app/core/abstracts/error-handler';
 import { StateClient } from 'src/app/core/enums/state-client';
 import { Client } from 'src/app/core/models/client';
 import { environment } from 'src/environments/environment';
 
+/**
+ * @description
+ * this class is used to managed clients collection with HttpClient
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -13,27 +17,18 @@ export class ClientsService extends ErrorHandler {
   /**
    * private collection property Observable
    */
-  private collection$: Subject<Client[]> = new Subject<Client[]>();
+  private collection$: Observable<Client[]>;
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) {
     super();
-  }
-  /**
-   * refresh collection
-   */
-  public refreshCollection(): void {
-    this.http
-      .get<Client[]>(`${this.urlApi}/clients`)
-      .pipe(catchError(this.handleError))
-      .subscribe((data) => this.collection$.next(data));
+    this.collection$ = this.http.get<Client[]>(`${this.urlApi}/clients`);
   }
 
   /**
    * get collection
    */
-  public get collection(): Subject<Client[]> {
-    this.refreshCollection();
+  public get collection(): Observable<Client[]> {
     return this.collection$;
   }
 
@@ -72,10 +67,9 @@ export class ClientsService extends ErrorHandler {
    * delete item in collection
    */
   public delete(id: number): Observable<Client> {
-    return this.http.delete<Client>(`${this.urlApi}/clients/${id}`).pipe(
-      tap(() => this.refreshCollection()),
-      catchError(this.handleError)
-    );
+    return this.http
+      .delete<Client>(`${this.urlApi}/clients/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   /**
