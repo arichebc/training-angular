@@ -10,6 +10,7 @@ import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.com
 import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.component';
 import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orders.component';
 import { OrdersEffects } from './store/effects/orders.effects';
+import { OrdersFacade } from './store/facade/orders.facade';
 import {
   ordersFeatureKey,
   ordersReducer,
@@ -30,6 +31,6 @@ import {
     StoreModule.forFeature(ordersFeatureKey, ordersReducer),
     EffectsModule.forFeature([OrdersEffects]),
   ],
-  providers: [],
+  providers: [OrdersFacade],
 })
 export class OrdersModule {}

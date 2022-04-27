@@ -1,18 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { VersionService } from 'src/app/core/services/version.service';
-import { AppState } from 'src/app/store/reducer';
-import { OrdersService } from '../../services/orders.service';
-import {
-  tryChangeStateOrderAction,
-  tryDeleteOrderAction,
-  tryGetAllOrdersAction,
-} from '../../store/actions/orders.actions';
-import { selectOrders } from '../../store/selectors/orders.selectors';
+import { OrdersFacade } from '../../store/facade/orders.facade';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -24,13 +16,11 @@ export class PageListOrdersComponent implements OnInit {
   public states = Object.values(StateOrder);
   public title = 'List Orders';
   public headers: string[];
-  public collection$ = this.store.select(selectOrders);
-  // public collection!: Order[];
+  public collection$ = this.facade.orders$;
   public version$!: Subject<number>;
 
   constructor(
-    private store: Store<AppState>,
-    // private ordersService: OrdersService,
+    private facade: OrdersFacade,
     private versionService: VersionService,
     private router: Router
   ) {
@@ -44,24 +34,16 @@ export class PageListOrdersComponent implements OnInit {
       'Total TTC',
       'State',
     ];
-    // this.collection$ = this.ordersService.collection;
-    // this.ordersService.collection.subscribe((data) => {
-    //   this.collection = data;
-    //   this.cd.detectChanges();
-    // });
     this.version$ = this.versionService.version;
   }
   ngOnInit(): void {
-    this.store.dispatch(tryGetAllOrdersAction());
+    this.facade.loadOrders();
   }
 
   public changeState(order: Order, event: Event): void {
     const target = event.target as HTMLSelectElement;
     const state = target.value as StateOrder;
-    this.store.dispatch(tryChangeStateOrderAction({ order, state }));
-    // this.ordersService.changeState(item, state).subscribe((data) => {
-    //   Object.assign(item, data);
-    // });
+    this.facade.changeState(order, state);
   }
 
   public goToEdit(id: number): void {
@@ -69,8 +51,7 @@ export class PageListOrdersComponent implements OnInit {
   }
 
   public deleteItem(id: number): void {
-    this.store.dispatch(tryDeleteOrderAction({ id }));
-    // this.ordersService.delete(id).subscribe();
+    this.facade.deleteOrder(id);
   }
 
   check() {

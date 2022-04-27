@@ -18,13 +18,14 @@ import { rootReducer } from './store/reducer';
     HttpClientModule,
     CoreModule,
     AppRoutingModule,
+
+    StoreModule.forRoot(rootReducer),
+    StoreRouterConnectingModule.forRoot(),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    StoreModule.forRoot(rootReducer),
-    StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([]),
   ],
   providers: [{ provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
   bootstrap: [AppComponent],
